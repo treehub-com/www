@@ -1,0 +1,16 @@
+{
+  "name": "www",
+  "version": "0.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "build": "docker build . -t treehub/www:$npm_package_version",
+    "push": "docker push treehub/www:$npm_package_version",
+    "deploy": "cat k8s.yaml | sed s/\\$VERSION/$npm_package_version/ | kubectl apply -f -",
+    "test": "echo 'skipped'"
+  },
+  "dependencies": {
+    "koa": "2.0.0",
+    "koa-router": "7.0.1"
+  }
+}
