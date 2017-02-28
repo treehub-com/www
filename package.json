@@ -4,8 +4,8 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "build": "docker build . -t treehub/www:$npm_package_version",
-    "push": "docker push treehub/www:$npm_package_version",
+    "build": "docker build . -t treehub/www:$npm_package_version && docker build . -t treehub/www:latest",
+    "push": "docker push treehub/www:latest && docker push treehub/www:latest",
     "deploy": "cat k8s.yaml | sed s/\\$VERSION/$npm_package_version/ | kubectl apply -f -",
     "test": "echo 'skipped'"
   },
