@@ -10,6 +10,7 @@ const router = new Router();
 
 // Logo
 router.get('/logo.png', async (ctx) => {
+  ctx.set('Content-Type', 'image/png');
   ctx.body = await getFile('logo.png');
 });
 
