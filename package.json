@@ -7,6 +7,7 @@
     "build": "docker build . -t treehub/www:`git rev-parse HEAD` && docker build . -t treehub/www:latest",
     "push": "docker push treehub/www:`git rev-parse HEAD` && docker push treehub/www:latest",
     "deploy": "kubectl -n treehub set image deployment/www www=treehub/www:`git rev-parse HEAD`",
+    "release": "npm run build && npm run push && npm run deploy",
     "test": "echo 'skipped'"
   },
   "dependencies": {
