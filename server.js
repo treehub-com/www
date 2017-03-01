@@ -5,14 +5,17 @@ const Router = require('koa-router');
 
 const port = process.env.PORT || 8080;
 
-const index = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-
 const app = new Koa();
 const router = new Router();
 
+// Logo
+router.get('/logo.png', async (ctx) => {
+  ctx.body = await getFile('logo.png');
+});
+
 // SPA fallthrough
-router.get('*', (ctx) => {
-  ctx.body = index;
+router.get('*', async (ctx) => {
+  ctx.body = await getFile('index.html', 'utf8');
 });
 
 app
@@ -20,3 +23,15 @@ app
   .use(router.allowedMethods());
 
 app.listen(port);
+
+function getFile(file, encoding=null) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path.join(__dirname, file), encoding, (error, data) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
