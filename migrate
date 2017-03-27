@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const migrate = require('./lib/migrate.js');
+const mysql = require('mysql');
+
+program
+  .option('-h, --host [host]', 'MySQL host', process.env.MYSQL_HOST || '127.0.0.1')
+  .option('-u, --user [user]', 'MySQL user name', process.env.MYSQL_USER || '')
+  .option('-p, --password [password]', 'MySQL password', process.env.MYSQL_PASSWORD || '')
+  .option('-P, --port [port]', 'MySQL port', process.env.MYSQL_PORT || '3306')
+  .arguments('migrate <database>');
+
+program.parse(process.argv);
+
+if (program.args.length != 1) {
+  program.help();
+}
+
+// Connect to server
+const connection = mysql.createConnection({
+  host: program.host,
+  port: program.port,
+  user: program.user,
+  password: program.password,
+  database: program.args[0],
+  multipleStatements: true,
+  dateStrings: true,
+  charset: 'utf8mb4_unicode_ci',
+  timezone: 'Z'
+});
+
+// Connect and migrate
+connection.connect((error) => {
+  if (error) {
+    console.error(error);
+    return process.exit(1);
+  }
+
+  migrate({
+    connection,
+  })
+    .then(() => {
+      console.log('Migration Complete');
+      connection.destroy();
+    })
+    .catch(error => {
+      console.log(error);
+      process.exit(1);
+    });
+
+});
