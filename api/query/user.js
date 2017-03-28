@@ -9,7 +9,12 @@ const query = `
   WHERE
 `;
 
-module.exports = async (root, {id, login}, {db}) => {
+module.exports = async (_, {id, login}, {db, userId}) => {
+  if (!userId) {
+    throw new Error('Unauthorized');
+  }
+
+
   let user = null;
   if (id) {
     const results = await db.query(query + 'id = ?', [id]);
@@ -27,7 +32,10 @@ module.exports = async (root, {id, login}, {db}) => {
       user = results[0];
     }
   } else {
-    // TODO return authenticated user
+    const results = await db.query(query + 'id = ?', [userId]);
+    if (results.length == 1) {
+      user = results[0];
+    }
   }
   return user;
 };

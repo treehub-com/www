@@ -1,4 +1,4 @@
-module.exports = async (root, {input}, {db}) => {
+module.exports = async (_, {input}, {db}) => {
   const {username, email} = input;
 
   if (!/^[0-9a-z][0-9a-z-]{0,62}[0-9a-z]$/.test(username)) {

@@ -23,9 +23,27 @@ function request({query, variables, operationName}) {
 }
 
 module.exports = async (ctx) => {
-  // Grab Authorization token & get user
-  // TODO
+  let userId = null;
 
+  // Grab Authorization token
+  const authorization = ctx.request.get('authorization').split(/\s+/);
+
+  // If token is set, check it's validity
+  if (authorization.length === 2) {
+    const token = authorization[1];
+    const results = await ctx.db.query(`
+      SELECT
+        user_id
+      FROM
+        tokens
+      WHERE
+        token = ?
+        AND expires > NOW()
+    `, [token]);
+    if (results.length === 1) {
+      userId = results[0].user_id;
+    }
+  }
 
   let {query, variables, operationName} = ctx.request.body;
 
@@ -40,6 +58,7 @@ module.exports = async (ctx) => {
     {}, // root
     {
       db: ctx.db,
+      userId,
     }, // ctx
     variables,
     operationName
