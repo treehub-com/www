@@ -7,6 +7,7 @@ const schema = makeExecutableSchema({
 });
 
 module.exports = async (ctx) => {
+  // userId is set ony if Authorization token is set and valid
   let userId = null;
 
   // Grab Authorization token
@@ -29,12 +30,15 @@ module.exports = async (ctx) => {
     }
   }
 
+  // Get graphql info
   let {query, variables, operationName} = ctx.request.body;
 
+  // Parse variables if needed
   if (typeof variables === 'string') {
     variables = JSON.parse(variables);
   }
 
+  // Perform request
   ctx.type = 'application/json';
   ctx.body = await graphql(
     schema,
