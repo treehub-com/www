@@ -6,22 +6,6 @@ const schema = makeExecutableSchema({
   resolvers: require('./resolvers.js'),
 });
 
-function request({query, variables, operationName}) {
-  return graphql(
-    schema,
-    query,
-    {}, // root
-    {
-      prefix: this.prefix,
-      backend: this.backend,
-      routes: this.routes,
-      db: this.db,
-    }, // ctx
-    variables,
-    operationName
-  );
-}
-
 module.exports = async (ctx) => {
   let userId = null;
 
