@@ -14,7 +14,6 @@ module.exports = async (_, {id, login}, {db, userId}) => {
     throw new Error('Unauthorized');
   }
 
-
   let user = null;
   if (id) {
     const results = await db.query(query + 'id = ?', [id]);
