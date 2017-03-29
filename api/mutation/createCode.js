@@ -1,7 +1,10 @@
 const crypto = require('crypto');
+const mail = require('../../lib/mail.js');
 const query = `
   SELECT
-    id
+    id,
+    username,
+    email
   FROM
     users
   WHERE
@@ -45,9 +48,11 @@ module.exports = async (_, {input}, {db}) => {
   }
 
   const userId = results[0].id;
+  const username = results[0].username;
+  const email = results[0].email;
 
   // Generate a one time code
-  const code = await generateCode();
+  let code = await generateCode();
 
   let inserted
   try {
@@ -55,12 +60,23 @@ module.exports = async (_, {input}, {db}) => {
   } catch (error) {
     // Retry once on failure
     if (error.code === 'ER_DUP_ENTRY') {
-      const newCode = '4567';
-      inserted = await db.query(insert, [newCode, userId]);
+      code = await generateCode();
+      inserted = await db.query(insert, [code, userId]);
     } else {
       throw error;
     }
   }
+
+  await mail.send({
+    template: 'code',
+    from: 'support@treehub.com',
+    to: `${username} <${email}>`,
+    variables: {
+      code,
+      email,
+      username,
+    }
+  });
 
   return 'Code generated. Check your email.';
 };
