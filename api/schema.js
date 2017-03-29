@@ -11,18 +11,11 @@ module.exports = [
   }`,
   // Mutations
   `type Mutation {
-    createUser(input: UserCreateInput): User
-    createCode(input: CodeCreateInput): Boolean
+    createCode(input: CodeCreateInput): String!
     createToken(input: TokenCreateInput): String!
+    createUser(input: UserCreateInput): User
   }`,
   // Types
-  `type User {
-    id: Int!
-    username: String!
-    # Redacted unless requesting your own information
-    email: String
-    created: String!
-  }`,
   `type Token {
     id: Int!
     userId: Int!
@@ -34,11 +27,14 @@ module.exports = [
     created: String!
     expires: String!
   }`,
-  // Inputs
-  `input UserCreateInput {
+  `type User {
+    id: Int!
     username: String!
-    email: String!
+    # Redacted unless requesting your own information
+    email: String
+    created: String!
   }`,
+  // Inputs
   `input CodeCreateInput {
     login: String!
   }`,
@@ -46,5 +42,9 @@ module.exports = [
     code: String!
     description: String
     expires: String
+  }`,
+  `input UserCreateInput {
+    username: String!
+    email: String!
   }`,
 ];

@@ -4,6 +4,7 @@ module.exports = {
     user: require('./query/user.js'),
   },
   Mutation: {
+    createCode: require('./mutation/createCode.js'),
     createUser: require('./mutation/createUser.js'),
   },
   // Types
