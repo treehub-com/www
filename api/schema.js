@@ -25,11 +25,13 @@ module.exports = [
   }`,
   `type Token {
     id: Int!
+    userId: Int!
     # Only set when returned from createToken
     token: String
     # Shows the last 7 characters
-    redactedToken: String
+    redactedToken: String!
     description: String!
+    created: String!
     expires: String!
   }`,
   // Inputs
