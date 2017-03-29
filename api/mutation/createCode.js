@@ -48,7 +48,6 @@ module.exports = async (_, {input}, {db}) => {
 
   // Generate a one time code
   const code = await generateCode();
-  console.log(code);
 
   let inserted
   try {
