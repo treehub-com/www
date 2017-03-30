@@ -11,11 +11,11 @@ Treehub
   `,
   html: ({username, code}) => `
 ${username}
-
+<br /><br />
 Here is your login code: <b>${code}</b>
-
+<br /><br />
 Cheers,
-
+<br />
 Treehub
   `,
 }
