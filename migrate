@@ -30,6 +30,8 @@ const connection = mysql.createConnection({
   timezone: 'Z'
 });
 
+console.log(`Connecting to ${program.host}:${program.port}/${program.args[0]}`);
+
 // Connect and migrate
 connection.connect((error) => {
   if (error) {

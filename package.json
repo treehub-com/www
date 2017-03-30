@@ -8,7 +8,8 @@
     "push": "docker push treehub/www:`git rev-parse HEAD` && docker push treehub/www:latest",
     "deploy": "kubectl -n treehub set image deployment/www www=treehub/www:`git rev-parse HEAD`",
     "release": "npm run build && npm run push && npm run deploy",
-    "test": "mocha 'api/**/*.test.js' -R list",
+    "test": "npm run test-api",
+    "test-api": "./migrate $MYSQL_DATABASE && mocha 'api/**/*.test.js' -R list",
     "watch": "nodemon server.js"
   },
   "dependencies": {
