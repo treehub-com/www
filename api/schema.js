@@ -11,11 +11,17 @@ module.exports = [
   }`,
   // Mutations
   `type Mutation {
-    createCode(input: CodeCreateInput): String!
-    createToken(input: TokenCreateInput): String!
-    createUser(input: UserCreateInput): User
+    createCode(input: CodeCreateInput!): CodeCreateResponse!
+    createToken(input: TokenCreateInput!): TokenCreateResponse!
+    createUser(input: UserCreateInput!): UserCreateResponse!
   }`,
   // Types
+  `type Error {
+    # The input field of the error, if any
+    key: String
+    # The error message, suitable for display
+    message: String!
+  }`,
   `type Token {
     id: Int!
     userId: Int!
@@ -34,17 +40,29 @@ module.exports = [
     email: String
     created: String!
   }`,
-  // Inputs
+  // Inputs & Responses
   `input CodeCreateInput {
     login: String!
+  }`,
+  `type CodeCreateResponse {
+    message: String
+    errors: [Error]!
   }`,
   `input TokenCreateInput {
     code: String!
     description: String
     expires: String
   }`,
+  `type TokenCreateResponse {
+    token: Token
+    errors: [Error]!
+  }`,
   `input UserCreateInput {
     username: String!
     email: String!
+  }`,
+  `type UserCreateResponse {
+    user: User
+    errors: [Error]!
   }`,
 ];

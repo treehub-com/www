@@ -32,11 +32,15 @@ function generateCode() {
 }
 
 module.exports = async (_, {input}, {db}) => {
+  const response = {
+    message: null,
+    errors: [],
+  };
+
   const {login} = input;
 
-  let results;
-
   // Retrieve the user
+  let results;
   if (/@/.test(login)) {
     results = await db.query(query + 'email = ?', [login]);
   } else {
@@ -44,7 +48,10 @@ module.exports = async (_, {input}, {db}) => {
   }
 
   if (results.length !== 1) {
-    return 'User not found.';
+    response.errors.push({
+      message: 'User not found',
+    });
+    return response;
   }
 
   const userId = results[0].id;
@@ -78,5 +85,7 @@ module.exports = async (_, {input}, {db}) => {
     }
   });
 
-  return 'Code generated. Check your email.';
+  response.message = 'Code generated. Check your email.';
+
+  return response;
 };
