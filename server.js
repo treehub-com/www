@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT || '3306',
   user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
+  password: process.env.MYSQL_PWD,
   database: process.env.MYSQL_DATABASE,
   dateStrings: true,
   charset: 'utf8mb4_unicode_ci',

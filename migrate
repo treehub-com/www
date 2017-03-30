@@ -7,7 +7,7 @@ const mysql = require('mysql');
 program
   .option('-h, --host [host]', 'MySQL host', process.env.MYSQL_HOST || '127.0.0.1')
   .option('-u, --user [user]', 'MySQL user name', process.env.MYSQL_USER || '')
-  .option('-p, --password [password]', 'MySQL password', process.env.MYSQL_PASSWORD || '')
+  .option('-p, --password [password]', 'MySQL password', process.env.MYSQL_PWD || '')
   .option('-P, --port [port]', 'MySQL port', process.env.MYSQL_PORT || '3306')
   .arguments('migrate <database>');
 
