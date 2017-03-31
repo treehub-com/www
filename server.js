@@ -41,7 +41,7 @@ const router = new Router();
 // Logo
 router.get('/logo.png', async (ctx) => {
   ctx.set('Content-Type', 'image/png');
-  ctx.body = await getFile('logo.png');
+  ctx.body = await getFile('img/logo.png');
 });
 
 // Treehub API
@@ -61,7 +61,7 @@ app.listen(port);
 
 function getFile(file, encoding=null) {
   return new Promise((resolve, reject) => {
-    fs.readFile(path.join(__dirname, file), encoding, (error, data) => {
+    fs.readFile(path.join(__dirname, 'assets', file), encoding, (error, data) => {
       if (error) {
         reject(error);
       } else {
