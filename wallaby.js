@@ -1,7 +1,9 @@
 module.exports = {
   files: [
     'api/**/*.js',
-    {pattern: 'src/**/*.test.js', ignore: true},
+    'lib/**/*.js',
+    'email/**/*.js',
+    {pattern: 'api/**/*.test.js', ignore: true},
   ],
   tests: [
     'api/**/*.test.js',

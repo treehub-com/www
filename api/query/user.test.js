@@ -1,11 +1,4 @@
-
-
 describe('api/user', () => {
-  before(async () => {
-    console.log(`truncating ${process.env.MYSQL_DATABASE}`);
-    
-  });
-
   it('should error when unauthorized');
 
   it('should get user by id');

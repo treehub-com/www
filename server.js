@@ -1,7 +1,7 @@
 const bodyparser = require('koa-bodyparser');
 const Koa = require('koa');
 const fs = require('fs');
-const mysql = require('mysql');
+const db = require('./lib/mysql.js');
 const path = require('path');
 const Router = require('koa-router');
 const api = require('./api/route.js');
@@ -10,31 +10,7 @@ const port = process.env.PORT || 8080;
 
 const app = new Koa();
 
-const connection = mysql.createConnection({
-  host: process.env.MYSQL_HOST,
-  port: process.env.MYSQL_PORT || '3306',
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PWD,
-  database: process.env.MYSQL_DATABASE,
-  dateStrings: true,
-  charset: 'utf8mb4_unicode_ci',
-  timezone: 'Z'
-});
-
-app.context.db = {
-  connection,
-  query: (sql, values = []) => {
-    return new Promise((resolve, reject) => {
-      connection.query(sql, values, (error, results) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(results);
-        }
-      });
-    });
-  }
-}
+app.context.db = db;
 
 const router = new Router();
 
