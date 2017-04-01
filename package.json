@@ -8,10 +8,27 @@
     "push": "docker push treehub/www:`git rev-parse HEAD` && docker push treehub/www:latest",
     "deploy": "kubectl -n treehub set image deployment/www www=treehub/www:`git rev-parse HEAD`",
     "release": "npm run build && npm run push && npm run deploy",
-    "test": "echo 'skipped'"
+    "test": "npm run test-api",
+    "test-api": "./scripts/test-setup $MYSQL_DATABASE && mocha 'api/**/*.test.js' -R list",
+    "watch": "nodemon server.js"
   },
   "dependencies": {
+    "commander": "2.9.0",
+    "form-data": "2.1.2",
+    "graphql": "0.9.1",
+    "graphql-tools": "0.10.1",
     "koa": "2.0.0",
-    "koa-router": "7.0.1"
+    "koa-bodyparser": "4.2.0",
+    "koa-router": "7.0.1",
+    "moment": "2.18.1",
+    "mysql": "2.13.0",
+    "node-fetch": "1.6.3",
+    "uuid": "3.0.1"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "3.2.0",
+    "nodemon": "1.11.0",
+    "proxyquire": "1.7.11"
   }
 }

@@ -1,0 +1,24 @@
+# Codes
+CREATE TABLE IF NOT EXISTS codes (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  code VARCHAR(64) NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  expires DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY (code),
+  KEY (expires)
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+# Tokens
+CREATE TABLE IF NOT EXISTS tokens (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  token VARCHAR(36) NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  created DATETIME DEFAULT CURRENT_TIMESTAMP,
+  expires DATETIME NOT NULL,
+  description VARCHAR(128),
+  PRIMARY KEY (id),
+  UNIQUE KEY (token),
+  KEY (user_id),
+  KEY (expires)
+) ENGINE=InnoDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
