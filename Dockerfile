@@ -2,7 +2,7 @@ FROM node:7.6.0-alpine
 
 WORKDIR /usr/src/app
 
-COPY ./package.json ./index.html ./server.js ./logo.png ./
+COPY ./ ./
 
 RUN npm install --loglevel warn --production
 
