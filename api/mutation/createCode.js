@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const mail = require('../../lib/mail.js');
 const query = `
   SELECT
     id,
@@ -31,7 +30,7 @@ function generateCode() {
   });
 }
 
-module.exports = async (_, {input}, {db}) => {
+module.exports = async (_, {input}, {db, mail}) => {
   const response = {
     message: null,
     errors: [],

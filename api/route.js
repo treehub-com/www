@@ -1,4 +1,5 @@
 const {graphql} = require('graphql');
+const mail = require('../lib/mail.js');
 const {makeExecutableSchema} = require('graphql-tools');
 
 const schema = makeExecutableSchema({
@@ -46,6 +47,7 @@ module.exports = async (ctx) => {
     {}, // root
     {
       db: ctx.db,
+      mail,
       userId,
     }, // ctx
     variables,

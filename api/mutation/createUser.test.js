@@ -16,8 +16,7 @@ describe('api/createUser', () => {
   });
 
   after(async () => {
-    await db.close();
-  })
+  });
 
   it('should error on invalid username/email', async () => {
     ctx.request.body = {
