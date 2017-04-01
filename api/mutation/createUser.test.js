@@ -8,14 +8,11 @@ const ctx = {
     get: () => '',
     body: {},
   }
-}
+};
 
 describe('api/createUser', () => {
   before(async () => {
     await db.query('TRUNCATE users');
-  });
-
-  after(async () => {
   });
 
   it('should error on invalid username/email', async () => {
@@ -34,7 +31,7 @@ describe('api/createUser', () => {
           email: 'ab.c',
         }
       }
-    }
+    };
     await route(ctx);
     expect(ctx.body.errors).to.equal(undefined);
     const response = ctx.body.data.createUser;

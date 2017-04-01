@@ -39,7 +39,7 @@ module.exports = async (_, {id, login}, {db, userId}) => {
 
   // Redact email if user.id != userId
   if (user !== null && user.id != userId) {
-    user.id = null;
+    user.email = null;
   }
 
   return user;

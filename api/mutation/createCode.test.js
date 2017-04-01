@@ -7,7 +7,7 @@ const mailMock = {
   send: async (options) => {
     mailCalls.push(options);
   }
-}
+};
 
 const route = proxyquire('../route.js', {'../lib/mail.js': mailMock});
 
@@ -17,20 +17,43 @@ const ctx = {
     get: () => '',
     body: {},
   }
-}
+};
 
-describe('api/user', () => {
+describe('api/createCode', () => {
   before(async () => {
     await db.query('TRUNCATE codes');
     await db.query('TRUNCATE tokens');
     await db.query('TRUNCATE users');
   });
 
-  after(async () => {
-    // fetchMock.reset();
+  beforeEach(() => {
+    mailCalls = [];
   });
 
-  it('should error when user not found');
+  it('should error when user not found', async () => {
+    ctx.request.body = {
+      query: `
+        mutation x($input: CodeCreateInput!) {
+          createCode(input:$input) {
+            message
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          login: 'bogus',
+        }
+      }
+    }
+    await route(ctx);
+    expect(ctx.body.errors).to.equal(undefined);
+    let result = ctx.body.data.createCode;
+    expect(result.errors.length).to.equal(1);
+    expect(result.errors[0].key).to.equal(null);
+    expect(result.errors[0].message).to.contain('not found');
+    expect(result.message).to.equal(null);
+  });
 
   it('should create and email the code', async () => {
     // Create the user
