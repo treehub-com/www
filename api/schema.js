@@ -6,12 +6,14 @@ module.exports = [
   }`,
   // Root Queries
   `type Query {
+    package(id: String!): Package
     user(id: ID login: String): User
     tokens: [Token!]!
   }`,
   // Mutations
   `type Mutation {
     createCode(input: CodeCreateInput!): CodeCreateResponse!
+    createPackage(input: PackageCreateInput!): PackageCreateResponse!
     createToken(input: TokenCreateInput!): TokenCreateResponse!
     createUser(input: UserCreateInput!): UserCreateResponse!
   }`,
@@ -21,6 +23,10 @@ module.exports = [
     key: String
     # The error message, suitable for display
     message: String!
+  }`,
+  `type Package {
+    id: String!
+    description: String!
   }`,
   `type Token {
     id: Int!
@@ -46,6 +52,14 @@ module.exports = [
   }`,
   `type CodeCreateResponse {
     message: String
+    errors: [Error]!
+  }`,
+  `input PackageCreateInput {
+    id: String!
+    description: String!
+  }`,
+  `type PackageCreateResponse {
+    package: Package
     errors: [Error]!
   }`,
   `input TokenCreateInput {
