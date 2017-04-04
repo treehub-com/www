@@ -12,4 +12,9 @@ module.exports = {
   env: {
     type: 'node',
   },
+  workers: {
+    initial: 1,
+    regular: 1,
+    recycle: true
+  },
 };
