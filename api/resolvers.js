@@ -9,6 +9,7 @@ module.exports = {
     createPackage: require('./mutation/createPackage.js'),
     createToken: require('./mutation/createToken.js'),
     createUser: require('./mutation/createUser.js'),
+    publishPackage: require('./mutation/publishPackage.js'),
   },
   // Types
   Error: require('./type/Error.js'),

@@ -47,6 +47,7 @@ describe('api/createPackage', () => {
   beforeEach(async () => {
     await db.query('TRUNCATE packages');
     await db.query('TRUNCATE package_owners');
+    await db.query('TRUNCATE package_versions');
   });
 
   it('should error when unauthorized', async () => {
@@ -106,7 +107,7 @@ describe('api/createPackage', () => {
       query: `
         mutation x($input: PackageCreateInput!) {
           createPackage(input:$input) {
-            package {id description}
+            package {id description latest}
             errors {key message}
           }
         }
@@ -125,6 +126,7 @@ describe('api/createPackage', () => {
     expect(response.package).to.deep.equal({
       id: 'pkg',
       description: 'description',
+      latest: null,
     });
   });
 

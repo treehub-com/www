@@ -8,7 +8,15 @@ module.exports = async (_, {id}, {db, userId}) => {
   const results = await db.query(`
     SELECT
       id,
-      description
+      description,
+      (
+        SELECT
+          MAX(version)
+        FROM
+          package_versions
+        WHERE
+          package_id = packages.id
+      ) as latest
     FROM
       packages
     WHERE

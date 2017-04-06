@@ -3,6 +3,7 @@ module.exports = {
     'api/**/*.js',
     'lib/**/*.js',
     'email/**/*.js',
+    'test/**/*',
     {pattern: 'api/**/*.test.js', ignore: true},
   ],
   tests: [

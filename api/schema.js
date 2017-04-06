@@ -16,6 +16,7 @@ module.exports = [
     createPackage(input: PackageCreateInput!): PackageCreateResponse!
     createToken(input: TokenCreateInput!): TokenCreateResponse!
     createUser(input: UserCreateInput!): UserCreateResponse!
+    publishPackage(input: PackagePublishInput!): PackagePublishResponse!
   }`,
   // Types
   `type Error {
@@ -27,6 +28,7 @@ module.exports = [
   `type Package {
     id: String!
     description: String!
+    latest: Int
   }`,
   `type Token {
     id: Int!
@@ -60,6 +62,14 @@ module.exports = [
   }`,
   `type PackageCreateResponse {
     package: Package
+    errors: [Error]!
+  }`,
+  `input PackagePublishInput {
+    id: String!
+    zip: String!
+  }`,
+  `type PackagePublishResponse {
+    version: Int
     errors: [Error]!
   }`,
   `input TokenCreateInput {
