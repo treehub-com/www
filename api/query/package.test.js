@@ -64,6 +64,8 @@ describe('api/createPackage', () => {
       }
     };
     await route(ctx);
+
+    // Create package version
   });
 
   it('should error when unauthorized', async () => {
@@ -109,6 +111,7 @@ describe('api/createPackage', () => {
           package(id: "pkg") {
             id
             description
+            latest
           }
         }
       `,
@@ -118,6 +121,7 @@ describe('api/createPackage', () => {
     expect(ctx.body.data.package).to.deep.equal({
       id: 'pkg',
       description: 'description',
+      latest: null,
     });
   });
 

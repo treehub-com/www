@@ -27,6 +27,7 @@ module.exports = [
   `type Package {
     id: String!
     description: String!
+    latest: Int
   }`,
   `type Token {
     id: Int!

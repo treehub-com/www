@@ -41,7 +41,8 @@ module.exports = async (_, {input}, {db, userId}) => {
     const results = await db.query(`
       SELECT
         id,
-        description
+        description,
+        NULL as latest
       FROM
         packages
       WHERE
