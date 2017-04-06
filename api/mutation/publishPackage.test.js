@@ -58,8 +58,25 @@ describe('api/publishPackage', () => {
       ('1234', 1, (NOW() + INTERVAL 1 DAY), '')
     `);
 
-    // Create package
+    // Create packages
     ctx.request.get = () => `Token ${token}`;
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackageCreateInput!) {
+          createPackage(input:$input) {
+            package {id description}
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'pkg',
+          description: 'description',
+        }
+      }
+    };
+    await route(ctx);
     ctx.request.body = {
       query: `
         mutation x($input: PackageCreateInput!) {
@@ -77,7 +94,28 @@ describe('api/publishPackage', () => {
       }
     };
     await route(ctx);
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackageCreateInput!) {
+          createPackage(input:$input) {
+            package {id description}
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'no-perm',
+          description: 'description',
+        }
+      }
+    };
+    await route(ctx);
 
+    // Remove permissions for no-perm package
+    await db.query(`DELETE FROM package_owners WHERE package_id = 'no-perm'`);
+
+    // Get the base64 encoded zip file
     zip = fs.readFileSync(path.join(__dirname, '../../test/test.zip'))
             .toString('base64');
   });
@@ -90,11 +128,141 @@ describe('api/publishPackage', () => {
     zip = null;
   })
 
-  it('should error when package not found');
+  it('should error when when unauthorized', async () => {
+    ctx.request.get = () => '';
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'test',
+          zip,
+        }
+      }
+    };
+    await route(ctx);
+    expect(ctx.body.errors.length).to.equal(1);
+    expect(ctx.body.errors[0].message).to.contain('Unauthorized');
+    expect(ctx.body.data).to.equal(null);
+  });
 
-  it('should error when user does not have permission');
+  it('should error when package not found', async () => {
+    ctx.request.get = () => `Token ${token}`;
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'bogus',
+          zip,
+        }
+      }
+    };
+    await route(ctx);
+    expect(ctx.body.errors).to.equal(undefined);
+    const response = ctx.body.data.publishPackage;
+    expect(response.version).to.equal(null);
+    expect(response.errors.length).to.equal(1);
+    let error = response.errors[0];
+    expect(error.key).to.equal(null);
+  });
 
-  it('should error when zip is invalid (treehub.json missing/invalid/mismatch)');
+  it('should error when user does not have permission', async () => {
+    ctx.request.get = () => `Token ${token}`;
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'no-perm',
+          zip,
+        }
+      }
+    };
+    await route(ctx);
+    expect(ctx.body.errors).to.equal(undefined);
+    const response = ctx.body.data.publishPackage;
+    expect(response.version).to.equal(null);
+    expect(response.errors.length).to.equal(1);
+    let error = response.errors[0];
+    expect(error.key).to.equal(null);
+  });
+
+  it('should error when zip is invalid', async () => {
+    ctx.request.get = () => `Token ${token}`;
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'test',
+          zip: '1234',
+        }
+      }
+    };
+    await route(ctx);
+    expect(ctx.body.errors.length).to.equal(1);
+    expect(ctx.body.errors[0].message).to.contain('Corrupted');
+    expect(ctx.body.data).to.equal(null);
+  });
+
+  it('should error when treehub.json is missing');
+
+  it('should error when treehub.json is not valid json');
+
+  it('should error when id and zip name do not match', async () => {
+    ctx.request.get = () => `Token ${token}`;
+    ctx.request.body = {
+      query: `
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
+          }
+        }
+      `,
+      variables: {
+        input: {
+          id: 'pkg',
+          zip,
+        }
+      }
+    };
+    await route(ctx);
+    expect(ctx.body.errors).to.equal(undefined);
+    const response = ctx.body.data.publishPackage;
+    expect(response.version).to.equal(null);
+    expect(response.errors.length).to.equal(1);
+    let error = response.errors[0];
+    expect(error.key).to.equal('zip');
+    expect(error.message).to.contain('name must match id');
+  });
+
+  it('should error when treehub.json is invalid');
 
   it('should publish package', async () => {
     ctx.request.get = () => `Token ${token}`;
