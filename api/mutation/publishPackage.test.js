@@ -1,6 +1,17 @@
 const db = require('../../lib/mysql.js');
 const {expect} = require('chai');
-const route = require('../route.js');
+const fs = require('fs');
+const path = require('path');
+const proxyquire =  require('proxyquire');
+
+let gcsCalls = [];
+const gcsMock = {
+  uploadPackage: async ({name, version, cacheControl}) => {
+    gcsCalls.push({name, version, cacheControl});
+  }
+};
+
+const route = proxyquire('../route.js', {'../lib/gcs.js': gcsMock});
 
 const ctx = {
   db,
@@ -10,13 +21,15 @@ const ctx = {
   }
 };
 const token = '1234';
+let zip;
 
-describe('api/createPackage', () => {
+describe('api/publishPackage', () => {
   before(async () => {
     await db.query('TRUNCATE users');
     await db.query('TRUNCATE tokens');
     await db.query('TRUNCATE packages');
     await db.query('TRUNCATE package_owners');
+    await db.query('TRUNCATE package_versions');
     // Create user
     ctx.request.body = {
       query: `
@@ -58,77 +71,64 @@ describe('api/createPackage', () => {
       `,
       variables: {
         input: {
-          id: 'pkg',
+          id: 'test',
           description: 'description',
         }
       }
     };
     await route(ctx);
 
-    // Create package version
-    await db.query(`
-      INSERT INTO
-        package_versions
-      (package_id, version)
-      VALUES
-      ('pkg', 37)
-    `);
+    zip = fs.readFileSync(path.join(__dirname, '../../test/test.zip'))
+            .toString('base64');
   });
 
-  it('should error when unauthorized', async () => {
-    ctx.request.get = () => '';
-    ctx.request.body = {
-      query: `
-        query {
-          package(id: "pkg") {
-            id
-            description
-          }
-        }
-      `,
-    };
-    await route(ctx);
-    expect(ctx.body.errors.length).to.equal(1);
-    expect(ctx.body.errors[0].message).to.contain('Unauthorized');
-    expect(ctx.body.data.package).to.equal(null);
+  beforeEach(() => {
+    gcsCalls = [];
   });
 
-  it('should return null on package not found', async () => {
+  after(() => {
+    zip = null;
+  })
+
+  it('should error when package not found');
+
+  it('should error when user does not have permission');
+
+  it('should error when zip is invalid (treehub.json missing/invalid/mismatch)');
+
+  it('should publish package', async () => {
     ctx.request.get = () => `Token ${token}`;
     ctx.request.body = {
       query: `
-        query {
-          package(id: "missing") {
-            id
-            description
+        mutation x($input: PackagePublishInput!) {
+          publishPackage(input:$input) {
+            version
+            errors {key message}
           }
         }
       `,
-    };
-    await route(ctx);
-    expect(ctx.body.errors).to.equal(undefined);
-    expect(ctx.body.data.package).to.equal(null);
-  });
-
-  it('should return the package', async () => {
-    ctx.request.get = () => `Token ${token}`;
-    ctx.request.body = {
-      query: `
-        query {
-          package(id: "pkg") {
-            id
-            description
-            latest
-          }
+      variables: {
+        input: {
+          id: 'test',
+          zip,
         }
-      `,
+      }
     };
     await route(ctx);
     expect(ctx.body.errors).to.equal(undefined);
-    expect(ctx.body.data.package).to.deep.equal({
-      id: 'pkg',
-      description: 'description',
-      latest: 37,
+    const response = ctx.body.data.publishPackage;
+    expect(response.errors).to.deep.equal([]);
+    expect(response.version).to.equal(1);
+    expect(gcsCalls.length).to.equal(2);
+    expect(gcsCalls[0]).to.deep.equal({
+      name: 'test',
+      version: 1,
+      cacheControl: undefined,
+    });
+    expect(gcsCalls[1]).to.deep.equal({
+      name: 'test',
+      version: 'latest',
+      cacheControl: 'no-cache',
     });
   });
 
