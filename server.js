@@ -29,7 +29,7 @@ router.get('*', async (ctx) => {
 });
 
 app
-  .use(bodyparser({detectJSON: (ctx) => true}))
+  .use(bodyparser({detectJSON: (ctx) => true, jsonLimit: '5mb'}))
   .use(router.routes())
   .use(router.allowedMethods());
 
