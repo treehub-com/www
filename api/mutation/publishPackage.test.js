@@ -298,6 +298,17 @@ describe('api/publishPackage', () => {
       version: 'latest',
       cacheControl: 'no-cache',
     });
+
+    const pkg = await db.query(`
+      SELECT
+        description
+      FROM
+        packages
+      WHERE
+        id = ?
+    `, ['test']);
+
+    expect(pkg[0].description).to.equal('Treehub Test Package')
   });
 
 });

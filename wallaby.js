@@ -12,6 +12,10 @@ module.exports = {
   testFramework: 'mocha',
   env: {
     type: 'node',
+    params: {
+      // Wallaby doesn't escape env vars, so we manually set this to blank
+      env: 'GCLOUD_STORAGE_CREDENTIALS='
+    }
   },
   workers: {
     initial: 1,
