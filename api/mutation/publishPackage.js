@@ -102,7 +102,9 @@ module.exports = async (_, {input}, {db, gcs, userId}) => {
       packages
     SET
       description = ?
-  `,[json.description]);
+    WHERE
+      id = ?
+  `,[json.description, id]);
 
   // Upload Zip to packages.treehub.com as latest
   await gcs.uploadPackage({
@@ -111,6 +113,29 @@ module.exports = async (_, {input}, {db, gcs, userId}) => {
     zip: zPackage,
     cacheControl: 'no-cache'
   });
+
+  // Rebuild packages.json
+  // TODO Move this functionality to a cron job
+  const packages = await db.query(`
+    SELECT
+      packages.id,
+      packages.description,
+      MAX(package_versions.version) as latest
+    FROM
+      packages
+    LEFT JOIN
+      package_versions on (packages.id = package_versions.package_id)
+    GROUP BY
+      packages.id
+  `);
+  const packagesJSON = {};
+  for (const pkg of packages) {
+    packagesJSON[pkg.id] = {
+      description: pkg.description,
+      latest: pkg.latest,
+    };
+  }
+  await gcs.uploadPackagesJSON({json: packagesJSON});
 
   // Set version and return response
   response.version = version;

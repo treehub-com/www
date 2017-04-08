@@ -8,6 +8,9 @@ let gcsCalls = [];
 const gcsMock = {
   uploadPackage: async ({name, version, cacheControl}) => {
     gcsCalls.push({name, version, cacheControl});
+  },
+  uploadPackagesJSON: async ({json}) => {
+    gcsCalls.push({json});
   }
 };
 
@@ -287,7 +290,7 @@ describe('api/publishPackage', () => {
     const response = ctx.body.data.publishPackage;
     expect(response.errors).to.deep.equal([]);
     expect(response.version).to.equal(1);
-    expect(gcsCalls.length).to.equal(2);
+    expect(gcsCalls.length).to.equal(3);
     expect(gcsCalls[0]).to.deep.equal({
       name: 'test',
       version: 1,
@@ -297,6 +300,13 @@ describe('api/publishPackage', () => {
       name: 'test',
       version: 'latest',
       cacheControl: 'no-cache',
+    });
+    expect(gcsCalls[2]).to.deep.equal({
+      json: {
+        'no-perm': {description: 'description', latest: null},
+        'pkg': {description: 'description', latest: null},
+        'test': {description: 'Treehub Test Package', latest: 1},
+      }
     });
 
     const pkg = await db.query(`
