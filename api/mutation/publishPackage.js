@@ -96,6 +96,14 @@ module.exports = async (_, {input}, {db, gcs, userId}) => {
     (?, ?)
   `,[id, version]);
 
+  // Update package description
+  await db.query(`
+    UPDATE
+      packages
+    SET
+      description = ?
+  `,[json.description]);
+
   // Upload Zip to packages.treehub.com as latest
   await gcs.uploadPackage({
     name: id,
