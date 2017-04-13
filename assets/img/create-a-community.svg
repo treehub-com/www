@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="416px" height="592px" viewBox="0 0 416 592" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>create-a-community</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="32" y="32" width="256" height="80" rx="4"></rect>
+        <rect id="path-2" x="112" y="160" width="256" height="48" rx="4"></rect>
+        <rect id="path-3" x="112" y="240" width="256" height="112" rx="4"></rect>
+        <rect id="path-4" x="32" y="400" width="256" height="144" rx="4"></rect>
+        <path d="M0,4 C0,4 8.41796875,7.71015625 13.4179687,12.8 C18.4179688,17.8898438 19,20 19,20 L1,20 C1,20 2,18.4935547 2,12.8 C2,7.10644531 0,4 0,4 Z" id="path-5"></path>
+        <path d="M0,4 C0,4 8.41796875,7.71015625 13.4179687,12.8 C18.4179688,17.8898438 19,20 19,20 L1,20 C1,20 2,18.4935547 2,12.8 C2,7.10644531 0,4 0,4 Z" id="path-6"></path>
+        <path d="M0,4 C0,4 8.41796875,7.71015625 13.4179687,12.8 C18.4179688,17.8898438 19,20 19,20 L1,20 C1,20 2,18.4935547 2,12.8 C2,7.10644531 0,4 0,4 Z" id="path-7"></path>
+        <path d="M0,4 C0,4 8.41796875,7.71015625 13.4179687,12.8 C18.4179688,17.8898438 19,20 19,20 L1,20 C1,20 2,18.4935547 2,12.8 C2,7.10644531 0,4 0,4 Z" id="path-8"></path>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="create-a-community">
+            <g id="Rectangle-6" opacity="0.5">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#000000" stroke-width="1" x="32.5" y="32.5" width="255" height="79" rx="4"></rect>
+            </g>
+            <g id="Rectangle-6-Copy" opacity="0.5">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#000000" stroke-width="1" x="112.5" y="160.5" width="255" height="47" rx="4"></rect>
+            </g>
+            <g id="Rectangle-6-Copy-2" opacity="0.5">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <rect stroke="#000000" stroke-width="1" x="112.5" y="240.5" width="255" height="111" rx="4"></rect>
+            </g>
+            <rect id="Rectangle" fill="#000000" opacity="0.5" x="48" y="48" width="104" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-5" fill="#000000" opacity="0.5" x="168" y="48" width="104" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy" fill="#9B9B9B" opacity="0" x="48" y="80" width="48" height="16" rx="3"></rect>
+            <rect id="Rectangle-Copy-7" fill="#000000" opacity="0.5" x="112" y="80" width="96" height="16" rx="4"></rect>
+            <text id="Smyth" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" fill="#1E6FCC">
+                <tspan x="49" y="92">Smyth</tspan>
+            </text>
+            <rect id="Rectangle-Copy-3" fill="#000000" opacity="0.5" x="128" y="176" width="48" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-8" fill="#000000" opacity="0.5" x="192" y="176" width="48" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-4" fill="#000000" opacity="0.5" x="128" y="256" width="72" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-10" fill="#000000" opacity="0.5" x="216" y="256" width="136" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-17" fill="#000000" opacity="0.5" x="128" y="320" width="56" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-16" fill="#000000" opacity="0.5" x="200" y="320" width="96" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-2" fill="#000000" opacity="0.5" x="128" y="288" width="112" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-11" fill="#9B9B9B" opacity="0" x="256" y="288" width="48" height="16" rx="3"></rect>
+            <text id="Smith" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" fill="#1E6FCC">
+                <tspan x="257" y="300">Smith</tspan>
+            </text>
+            <g id="Rectangle-6" opacity="0.5">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <rect stroke="#000000" stroke-width="1" x="32.5" y="400.5" width="255" height="143" rx="4"></rect>
+            </g>
+            <rect id="Rectangle" fill="#000000" opacity="0.5" x="48" y="416" width="128" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-9" fill="#000000" opacity="0.5" x="192" y="416" width="80" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy" fill="#000000" opacity="0.5" x="48" y="448" width="88" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-12" fill="#000000" opacity="0.5" x="152" y="448" width="120" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-6" fill="#9B9B9B" opacity="0" x="48" y="480" width="56" height="16" rx="4"></rect>
+            <text id="Smyth" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" fill="#1E6FCC">
+                <tspan x="53" y="492">Smyth</tspan>
+            </text>
+            <rect id="Rectangle-Copy-14" fill="#000000" opacity="0.5" x="120" y="480" width="80" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-15" fill="#000000" opacity="0.5" x="48" y="512" width="120" height="16" rx="4"></rect>
+            <rect id="Rectangle-Copy-13" fill="#9B9B9B" opacity="0" x="216" y="480" width="56" height="16" rx="4"></rect>
+            <text id="Smith" font-family="Roboto-Regular, Roboto" font-size="16" font-weight="normal" fill="#1E6FCC">
+                <tspan x="222" y="492">Smith</tspan>
+            </text>
+            <g id="Group" transform="translate(48.000000, 108.000000)">
+                <g id="Triangle" opacity="0.5" transform="translate(9.500000, 12.000000) scale(1, -1) translate(-9.500000, -12.000000) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    <path stroke="#000000" stroke-width="1" d="M1.08335136,5.06388774 C1.50538753,5.27087422 1.95602927,5.49859561 2.4299348,5.7459857 C4.40947767,6.77935468 6.38879456,7.94131132 8.23376679,9.20435575 C10.1133638,10.4911038 11.7466278,11.8121151 13.0612813,13.1503913 C15.2275624,15.3555977 16.7227952,17.1584771 17.6670787,18.5847161 C17.9105172,18.9524039 18.0937842,19.256761 18.2274795,19.5 L1.75516239,19.5 C1.83172991,19.2652777 1.9102441,18.9825009 1.98730793,18.6470249 C2.30881185,17.2474467 2.5,15.326622 2.5,12.8 C2.5,10.2535179 2.11579965,8.0161699 1.47396791,6.10568629 C1.34810488,5.73104095 1.21698952,5.38365906 1.08335136,5.06388774 Z"></path>
+                </g>
+                <polygon id="Rectangle-2" fill="#FFFFFF" points="0.631591797 0 19.748291 0 17.3342285 5 2.40000153 5"></polygon>
+            </g>
+            <g id="Group-Copy" transform="translate(48.000000, 540.000000)">
+                <g id="Triangle" opacity="0.5" transform="translate(9.500000, 12.000000) scale(1, -1) translate(-9.500000, -12.000000) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                    <path stroke="#000000" stroke-width="1" d="M1.08335136,5.06388774 C1.50538753,5.27087422 1.95602927,5.49859561 2.4299348,5.7459857 C4.40947767,6.77935468 6.38879456,7.94131132 8.23376679,9.20435575 C10.1133638,10.4911038 11.7466278,11.8121151 13.0612813,13.1503913 C15.2275624,15.3555977 16.7227952,17.1584771 17.6670787,18.5847161 C17.9105172,18.9524039 18.0937842,19.256761 18.2274795,19.5 L1.75516239,19.5 C1.83172991,19.2652777 1.9102441,18.9825009 1.98730793,18.6470249 C2.30881185,17.2474467 2.5,15.326622 2.5,12.8 C2.5,10.2535179 2.11579965,8.0161699 1.47396791,6.10568629 C1.34810488,5.73104095 1.21698952,5.38365906 1.08335136,5.06388774 Z"></path>
+                </g>
+                <polygon id="Rectangle-2" fill="#FFFFFF" points="0.631591797 0 19.748291 0 17.3342285 5 2.40000153 5"></polygon>
+            </g>
+            <g id="Group-Copy-3" transform="translate(342.000000, 358.000000) scale(-1, 1) translate(-342.000000, -358.000000) translate(332.000000, 348.000000)">
+                <g id="Triangle" opacity="0.5" transform="translate(9.500000, 12.000000) scale(1, -1) translate(-9.500000, -12.000000) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
+                    <path stroke="#000000" stroke-width="1" d="M1.08335136,5.06388774 C1.50538753,5.27087422 1.95602927,5.49859561 2.4299348,5.7459857 C4.40947767,6.77935468 6.38879456,7.94131132 8.23376679,9.20435575 C10.1133638,10.4911038 11.7466278,11.8121151 13.0612813,13.1503913 C15.2275624,15.3555977 16.7227952,17.1584771 17.6670787,18.5847161 C17.9105172,18.9524039 18.0937842,19.256761 18.2274795,19.5 L1.75516239,19.5 C1.83172991,19.2652777 1.9102441,18.9825009 1.98730793,18.6470249 C2.30881185,17.2474467 2.5,15.326622 2.5,12.8 C2.5,10.2535179 2.11579965,8.0161699 1.47396791,6.10568629 C1.34810488,5.73104095 1.21698952,5.38365906 1.08335136,5.06388774 Z"></path>
+                </g>
+                <polygon id="Rectangle-2" fill="#FFFFFF" points="0.631591797 0 19.748291 0 17.3342285 5 2.40000153 5"></polygon>
+            </g>
+            <g id="Group-Copy-4" transform="translate(342.000000, 214.000000) scale(-1, 1) translate(-342.000000, -214.000000) translate(332.000000, 204.000000)">
+                <g id="Triangle" opacity="0.5" transform="translate(9.500000, 12.000000) scale(1, -1) translate(-9.500000, -12.000000) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-8"></use>
+                    <path stroke="#000000" stroke-width="1" d="M1.08335136,5.06388774 C1.50538753,5.27087422 1.95602927,5.49859561 2.4299348,5.7459857 C4.40947767,6.77935468 6.38879456,7.94131132 8.23376679,9.20435575 C10.1133638,10.4911038 11.7466278,11.8121151 13.0612813,13.1503913 C15.2275624,15.3555977 16.7227952,17.1584771 17.6670787,18.5847161 C17.9105172,18.9524039 18.0937842,19.256761 18.2274795,19.5 L1.75516239,19.5 C1.83172991,19.2652777 1.9102441,18.9825009 1.98730793,18.6470249 C2.30881185,17.2474467 2.5,15.326622 2.5,12.8 C2.5,10.2535179 2.11579965,8.0161699 1.47396791,6.10568629 C1.34810488,5.73104095 1.21698952,5.38365906 1.08335136,5.06388774 Z"></path>
+                </g>
+                <polygon id="Rectangle-2" fill="#FFFFFF" points="0.631591797 0 19.748291 0 17.3342285 5 2.40000153 5"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
