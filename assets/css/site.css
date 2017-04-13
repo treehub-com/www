@@ -61,9 +61,12 @@ hr {
 }
 
 header {
+  align-self: center;
   display: flex;
   align-items: baseline;
   height: 2rem;
+  width: 100%;
+  max-width: 60rem;
   padding: 1rem;
 }
 
@@ -205,7 +208,7 @@ main {
 .pricing-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -290,15 +293,22 @@ main {
 
 footer {
   display: flex;
-  padding: 1rem;
+  justify-content: center;
   color: var(--color-white);
   background-color: #A1A1A1;
 }
 
-footer .footer-spacer {
-  flex: 1;
+.footer-content {
+  display: flex;
+  width: 100%;
+  max-width: 60rem;
+  padding: 1rem;
 }
 
-footer > *:not(:last-child) {
+.footer-content > *:not(:last-child) {
   margin-right: 1rem;
+}
+
+.footer-spacer {
+  flex: 1;
 }
