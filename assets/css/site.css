@@ -91,6 +91,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 #banner {
@@ -102,7 +103,21 @@ main {
   min-height: 37rem;
   height: 70vh;
   text-align: center;
-  background-color: #999999;
+  background-color: rgba(55,55,55,0.1);
+}
+
+#banner:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 37rem;
+  height: 70vh;
+  width: 100%;
+  z-index: -1;
+  background-image: url('/s/img/banner.jpeg');
+  background-size: cover;
 }
 
 #banner h1 {
@@ -214,7 +229,7 @@ main {
 .pricing-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
@@ -224,6 +239,11 @@ main {
   align-items: center;
   margin: 4rem 2rem 0 2rem;
   cursor: pointer;
+}
+
+.pricing-cards .card:nth-of-type(2) {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .pricing-cards .card:hover {
