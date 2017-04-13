@@ -132,10 +132,10 @@ main {
 }
 
 .about-card-image {
-  height: 37rem;
   width: 100%;
   max-width: 26rem;
   margin: 4rem 2rem 0 2rem;
+  box-shadow: 0 4px 10px 0 rgba(55,55,55,0.67);
 }
 
 .about-cards {
@@ -166,6 +166,7 @@ main {
 
 .about .image {
   display: none;
+  width: 100%;
 }
 
 .about[show="your-data"] .image[show="your-data"],
