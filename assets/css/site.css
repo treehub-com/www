@@ -80,9 +80,10 @@ header svg {
 
 header .logo {
   font-size: 1.5rem;
+  white-space: nowrap;
 }
 
-header a {
+header a:not(:first-child) {
   margin-left: 1.5rem;
 }
 
@@ -124,6 +125,7 @@ main {
   border: 0;
   border-radius: .25rem;
   box-shadow: 0 2px 4px 0 rgba(55,55,55,0.67);
+  cursor: pointer;
 }
 
 .about {
@@ -151,6 +153,10 @@ main {
   margin: 4rem 2rem 0 2rem;
 }
 
+.about-cards .card {
+  cursor: pointer;
+}
+
 .about-cards .card:not(:first-child):not(:last-child) {
   margin: 4rem 0;
 }
@@ -168,19 +174,19 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 60rem;
+  max-width: 64rem; /* 60 for content, 4 for children margin */
   margin: 3rem 0 4rem 0;
 }
 
 .pricing h2 {
   color: var(--color-blue);
-  margin-bottom: 3rem;
+  margin-bottom: -1rem;
 }
 
 .pricing-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
@@ -188,6 +194,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 4rem 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .pricing-cards h3 {
@@ -213,11 +221,54 @@ main {
   border: 0;
   border-radius: .25rem;
   box-shadow: 0 2px 4px 0 rgba(55,55,55,0.67);
+  cursor: pointer;
+}
+
+.download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 64rem; /* 60 for content, 4 for children margin */
+  margin: 3rem 0 4rem 0;
+}
+
+.download h2 {
+  margin-bottom: 3rem;
+  color: var(--color-blue);
+  text-align: center;
+}
+
+.download-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-links > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.download a {
+  display: inline-block;
+    width: 5rem;
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+    color: var(--color-blue);
+    text-align: center;
+}
+
+.download a[disabled] {
+  color: #A1A1A1;
 }
 
 footer {
   display: flex;
   padding: 1rem;
+  color: var(--color-white);
   background-color: #A1A1A1;
 }
 
