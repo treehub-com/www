@@ -61,7 +61,11 @@ hr {
 }
 
 header {
-  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
   display: flex;
   align-items: baseline;
   height: 2rem;
@@ -70,16 +74,16 @@ header {
   padding: 1rem;
 }
 
-header svg {
+.header-content svg {
   height: 1.5rem;
 }
 
-header .logo {
+.header-content .logo {
   font-size: 1.5rem;
   white-space: nowrap;
 }
 
-header a:not(:first-child) {
+.header-content a:not(:first-child) {
   margin-left: 1.5rem;
 }
 
@@ -136,6 +140,7 @@ main {
 
 .about-card-image {
   width: 100%;
+  flex-basis: 26rem;
   max-width: 26rem;
   margin: 4rem 2rem 0 2rem;
   box-shadow: 0 4px 10px 0 rgba(55,55,55,0.67);
@@ -146,6 +151,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  flex-basis: 28rem;
   max-width: 28rem;
   margin: 4rem 2rem 0 2rem;
 }
