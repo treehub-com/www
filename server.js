@@ -4,6 +4,7 @@ const fs = require('fs');
 const db = require('./lib/mysql.js');
 const path = require('path');
 const Router = require('koa-router');
+const send = require('koa-send');
 const api = require('./api/route.js');
 
 const port = process.env.PORT || 8080;
@@ -14,10 +15,9 @@ app.context.db = db;
 
 const router = new Router();
 
-// Logo
-router.get('/logo.png', async (ctx) => {
-  ctx.set('Content-Type', 'image/png');
-  ctx.body = await getFile('img/logo.png');
+// Static assets
+router.get('/s/(.*)+', async (ctx) => {
+  await send(ctx, ctx.path.substr(2), {root: __dirname + '/assets'});
 });
 
 // Treehub API
@@ -25,7 +25,7 @@ router.post('/', api);
 
 // SPA fallthrough
 router.get('*', async (ctx) => {
-  ctx.body = await getFile('index.html', 'utf8');
+  await send(ctx, '/index.html', {root: __dirname + '/assets'});
 });
 
 app

@@ -4,60 +4,147 @@
     <title>Treehub</title>
     <meta name="description" content="Treehub: Doing Family History, Together">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="/logo.png"> 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        width: 100vw;
-        height: 100vh;
-        font-size: 16px;
-        /* https://bitsofco.de/the-new-system-font-stack/ */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        color: #404341;
-        background-color: #f9faf9;
-      }
-      main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-      }
-
-      main > * {
-        padding: 0 1rem;
-      }
-      svg {
-        height: 3.7rem;
-        padding-right: .7rem;
-      }
-      h1 {
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
-        flex-wrap: wrap;
-        font-size: 4.2rem;
-        font-weight: 200;
-        letter-spacing: 2px;
-      }
-      h2 {
-        margin-top: .5rem;
-        font-size: 2rem;
-        font-weight: 200;
-      }
-    </style>
+    <link rel="icon" type="image/png" href="/s/img/logo.png">
+    <link rel="stylesheet" type="text/css" href="/s/css/site.css">
   </head>
   <body>
-    <main>
-      <h1>
+    <header>
+      <div class="logo">
         <svg viewBox="0 0 145 140" xmlns="http://www.w3.org/2000/svg"><title>Logo</title><path d="M70 10v130H50V20H0V0h70v10zm75 50v80h-20V70H90V50h55v10z" fill="#404341" fill-rule="evenodd"/></svg>
         Treehub
-      </h1>
-      <h2>Coming 2017</h2>
+      </div>
+      <a href="#download">DOWNLOAD</a>
+      <a href="#pricing">PRICING</a>
+    </header>
+    <main>
+      <section id="banner">
+        <h1>Do Family History, Together</h1>
+        <h3>Any time, any where, with anyone</h3>
+        <button>Get Started Today</button>
+      </section>
+      <section class="about">
+        <div class="card about-card-image" depth="2">
+          <div>Image here</div>
+        </div>
+        <div class="about-cards">
+          <div class="card" depth="1">
+            <h3>Your Data</h3>
+            <p>
+              - Decide who can see or change your genealogy.<br />
+              - Determine what gets synced and what stays local.<br />
+              - Open source lets you maintain control of your data.
+            </p>
+          </div>
+          <div class="card" depth="1">
+            <h3>Your Way</h3>
+            <p>
+              - Customize to fit how you do family history.<br />
+              - Extend Treehub with community built packages.<br />
+              - Don’t see what you want? Write a package for it!
+            </p>
+          </div>
+          <div class="card" depth="1">
+            <h3>Your Device</h3>
+            <p>
+              - Runs in Mac, Windows, iOS, Android, and Browsers.<br />
+              - Offline first so you can work where you want to.<br />
+              - Get a hosted space to sync everything together.
+            </p>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section class="about">
+        <div class="about-cards">
+          <div class="card" depth="1">
+            <h3>Create a Space</h3>
+            <p>
+              - A Space holds research, data, and unlimited trees.<br />
+              - Sync between devices with a personal space.<br />
+              - Work with your family and friends in a shared space.
+            </p>
+          </div>
+          <div class="card" depth="1">
+            <h3>Create a Community</h3>
+            <p>
+              - Discuss family history in the context of your tree.<br />
+              - Review proposed changes before they are applied.<br />
+              - Set goals and tasks to help you work together.
+            </p>
+          </div>
+          <div class="card" depth="1">
+            <h3>Create a Presence</h3>
+            <p>
+              - Publish and share part or all of your research online.<br />
+              - Use your own domain name for that personal touch.<br />
+              - Automatically updated with every change you make.
+            </p>
+          </div>
+        </div>
+        <div class="card about-card-image" depth="2">
+          <div>Image here</div>
+        </div>
+      </section>
+      <hr />
+      <section class="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-cards">
+          <div class="card" depth="1">
+            <h3>Free</h3>
+            <h4>Local Space</h4>
+            <p>
+              - Unlimited trees<br />
+              - Goals, Tasks, Discussions...<br />
+              - Install community packages
+            </p>
+            <button>Get Started</button>
+          </div>
+          <div class="card" depth="1">
+            <h3>$x/mo</h3>
+            <h4>Personal Space</h4>
+            <p>
+              Local Space +<br />
+              - Sync across all your devices<br />
+              - Publish to your own domain
+            </p>
+            <button>Get Started</button>
+          </div>
+          <div class="card" depth="1">
+            <h3>$X/mo</h3>
+            <h4>Shared Space</h4>
+            <p>
+              Personal Space +<br />
+              - Unlimited Collaborators<br />
+              - Manage data and tree rights
+            </p>
+            <button>Get Started</button>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section class="download">
+        <h2>Pick A Platform</h2>
+        <div>Swing set</div>
+        <div class="download-links">
+          <div>
+            <a href="#" disabled>iOS</a>
+            <a href="#" disabled>Mac</a>
+            <a href="#" disabled>Safari</a>
+          </div>
+          <div>
+            <a href="#" disabled>Android</a>
+            <a href="#" disabled>Windows</a>
+            <a href="#" disabled>Chrome</a>
+            <a href="#" disabled>Firefox</a>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer>
+      <span>© Treehub LLC</span>
+      <span class="footer-spacer"> </span>
+      <a href="https://blog.treehub.com">Blog</a>
+      <a href="https://underground.treehub.com">Underground</a>
+    </footer>
   </body>
 </html>
