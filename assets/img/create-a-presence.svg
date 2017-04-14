@@ -1,0 +1,62 @@
+<svg width="416" height="592" viewBox="0 0 416 592" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    create-a-presence
+  </title>
+  <defs>
+    <rect id="a" x="32" y="208" width="352" height="112" rx="4"/>
+    <rect id="b" x="32" y="448" width="352" height="112" rx="4"/>
+    <rect id="c" x="32" y="344" width="352" height="80" rx="4"/>
+    <rect id="d" x="32" y="32" width="352" height="32" rx="4"/>
+    <path id="e" d="M0 0h96v31H0z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect fill="#000" opacity=".37" x="320" y="96" width="64" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="160" y="96" width="56" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="232" y="96" width="72" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="296" y="128" width="88" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="160" y="128" width="120" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="264" y="160" width="120" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="160" y="160" width="32" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="208" y="160" width="40" height="16" rx="4"/>
+    <use fill="#FFF" xlink:href="#a"/>
+    <rect stroke="#1E6FCC" x="32.5" y="208.5" width="351" height="111" rx="4"/>
+    <use fill="#FFF" xlink:href="#b"/>
+    <rect stroke="#1E6FCC" x="32.5" y="448.5" width="351" height="111" rx="4"/>
+    <rect fill="#000" opacity=".37" x="48" y="224" width="104" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="64" y="256" width="64" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="272" y="256" width="80" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="144" y="256" width="112" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="64" y="288" width="104" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="288" y="288" width="64" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="184" y="288" width="88" height="16" rx="4"/>
+    <use fill="#FFF" xlink:href="#c"/>
+    <rect stroke="#1E6FCC" x="32.5" y="344.5" width="351" height="79" rx="4"/>
+    <rect fill="#000" opacity=".37" x="48" y="360" width="104" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="64" y="392" width="32" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="240" y="392" width="112" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="112" y="392" width="112" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="48" y="464" width="104" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="64" y="496" width="96" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="256" y="496" width="96" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="176" y="496" width="64" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="64" y="528" width="80" height="16" rx="4"/>
+    <rect fill="#000" opacity=".37" x="160" y="528" width="128" height="16" rx="4"/>
+    <g opacity=".37">
+      <use fill="#FFF" xlink:href="#d"/>
+      <rect stroke="#000" x="32.5" y="32.5" width="351" height="31" rx="4"/>
+    </g>
+    <text font-family="Roboto-Regular, Roboto" font-size="16" fill="#1E6FCC">
+      <tspan x="40" y="53">https://yourdomain.com</tspan>
+    </text>
+    <g transform="translate(32 95)">
+      <g transform="translate(0 50)">
+        <mask id="f" fill="#fff">
+          <use xlink:href="#e"/>
+        </mask>
+        <use fill="#FFF" opacity=".5" xlink:href="#e"/>
+        <ellipse fill="#A1A1A1" mask="url(#f)" cx="47.907" cy="30.613" rx="48" ry="30.613"/>
+      </g>
+      <ellipse fill="#A1A1A1" cx="48" cy="29" rx="24" ry="29"/>
+    </g>
+  </g>
+</svg>

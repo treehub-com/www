@@ -1,0 +1,14 @@
+<svg width="416" height="592" viewBox="0 0 416 592" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    your-device
+  </title>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M112.99 74h1.783v14h-2.8V76.8H107V74h5.99zm7.46 4.968h1.782V88h-2.8v-6.232h-3.39v-2.8h4.407zM61.28 320h1.272v10h-2v-8H57v-2h4.28zm5.326 3.548h1.274V330h-2v-4.452h-2.422v-2h3.148zM247.995 381h.89v7h-1.4v-5.6H245V381h2.995zm3.73 2.484h.89V388h-1.4v-3.116h-1.694v-1.4h2.205z" fill="#000" opacity=".37"/>
+    <path d="M243 89v153M129 69v174M129 88.5h218" stroke="#000" opacity=".37" stroke-linecap="square"/>
+    <rect stroke="#1E6FCC" stroke-width="6" x="99" y="67" width="250" height="178" rx="4"/>
+    <path d="M73 316v175M73 331h99" stroke="#000" opacity=".37" stroke-linecap="square"/>
+    <rect stroke="#1E6FCC" stroke-width="4" x="50" y="314" width="124" height="180" rx="4"/>
+    <path d="M257 379v42M257 389h77" stroke="#000" opacity=".37" stroke-linecap="square"/>
+    <rect stroke="#1E6FCC" stroke-width="2" x="241" y="377" width="94" height="46" rx="4"/>
+  </g>
+</svg>
