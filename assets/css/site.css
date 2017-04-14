@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(/s/fonts/roboto-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +23,8 @@ body {
   min-height: 100vh;
   font-size: 16px;
   /* TODO switch to Roboto */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;*/
   color: rgba(55,55,55,0.9);
   background-color: #f8f8f8;
 }
@@ -103,7 +112,7 @@ main {
   min-height: 37rem;
   height: 70vh;
   text-align: center;
-  background-color: rgba(55,55,55,0.1);
+  background-color: rgba(55,55,55,0.13);
 }
 
 #banner:before {
@@ -116,7 +125,7 @@ main {
   height: 70vh;
   width: 100%;
   z-index: -1;
-  background-image: url('/s/img/banner.jpeg');
+  background-image: url('/s/img/banner.jpg');
   background-size: cover;
 }
 
@@ -306,11 +315,11 @@ main {
 
 #download a {
   display: inline-block;
-    width: 5rem;
-    padding: 1rem 4rem;
-    font-size: 1.5rem;
-    color: var(--color-blue);
-    text-align: center;
+  width: 5rem;
+  padding: 1rem 4rem;
+  font-size: 1.5rem;
+  color: var(--color-blue);
+  text-align: center;
 }
 
 #download a[disabled] {
