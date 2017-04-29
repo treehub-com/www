@@ -295,11 +295,21 @@ main {
 }
 
 #download h2 {
-  margin-bottom: 3rem;
   color: var(--color-blue);
   text-align: center;
 }
-
+.download-warning {
+  margin: 1rem 1rem 0 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #cc1e1e;
+}
+.download-explanation {
+  margin: .5rem 1rem 1.5rem 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #cc1e1e;
+}
 .download-links {
   display: flex;
   flex-direction: column;
